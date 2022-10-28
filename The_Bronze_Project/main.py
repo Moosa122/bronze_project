@@ -1,6 +1,7 @@
 #!C:\Users\Swati\AppData\Local\Programs\Python\Python311\python.exe
 
 from sys import argv
+from os import listdir
 
 
 if len(argv) >= 2:
@@ -25,11 +26,23 @@ if len(argv) >= 2:
         if module != a_module:
             print(f"No module found with name {module}.")
 
-        else:
-            with open(f"{name}.py", "w") as file:
-                file.write(str(templates["pygame"]))
+    list_of_files = listdir()
 
-            print(f"Done Making/Editing file of name {name}.py")
+    for a_file in list_of_files:
+        if f"{name}.py" == a_file:
+            print("File found with the same name.")
+            y_or_n = input("Are you sure that you want to overwrite it?(y/n) ")
+            y_or_n = y_or_n.lower()
+
+            if y_or_n = "y":
+                with open(f"{name}.py", "w") as file:
+                file.write(str(templates["pygame"]))
+                print(f"Done editing file of name {name}.py")")
+                break
+
+
+
+        
 
 else:
     print("Please enter 2 arguments.\n\nbronze <name of file to made or edited> <module>\n")
